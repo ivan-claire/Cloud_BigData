@@ -1,0 +1,5 @@
+package tpstorm.exclamation;
+
+public class ExclamationSpout {
+
+}
