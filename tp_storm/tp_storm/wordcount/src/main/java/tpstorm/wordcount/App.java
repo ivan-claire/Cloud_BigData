@@ -3,6 +3,7 @@ package tpstorm.wordcount;
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.topology.TopologyBuilder;
+import backtype.storm.tuple.Fields;
 import backtype.storm.utils.Utils;
 
 /**
@@ -36,8 +37,9 @@ public class App
     	.setNumTasks(4)
     	.shuffleGrouping("readSentence-spout");
     	
+    	//All grouping and Global grouping
     	builder.setBolt("counting-bolt", new CountingBolt(), 2)
-    	.shuffleGrouping("splitting-bolt");
+    	.fieldsGrouping("splitting-bolt", new Fields("WORD"));
     	
     	/*builder.setBolt("counting-bolt", new CountingBolt(), 1)
     	.shuffleGrouping("splitting-bolt");*/
