@@ -50,6 +50,7 @@
                  </configuration>
               </execution>
              </executions>
+
           </plugin>
 
 	  <plugin>
@@ -71,12 +72,13 @@
                   </execution>
                 </executions>
           </plugin>
+
 	<plugin>
 	<groupId>org.apache.thrift.tools</groupId>
 	<artifactId>maven-thrift-plugin</artifactId>
 	<version>0.1.11</version>
 	<configuration>
-	   <thriftExecutable>/usr/bin/thrift</thriftExecutable>
+	   <thriftExecutable>/usr/local/bin/thrift</thriftExecutable>
 	   <outputDirectory>${basedir}/gen-src/main/java</outputDirectory>
 	   <generator>java</generator>
 	</configuration>
@@ -101,10 +103,19 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
        <groupId>org.apache.thrift</groupId>
        <artifactId>libthrift</artifactId>
        <version>0.11.0</version>
     </dependency>
   </dependencies>
+
+   <repositories>
+        <repository>
+            <id>Maven Central Repository</id>
+            <name>Maven Central Repository</name>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+    </repositories>
 </project>
